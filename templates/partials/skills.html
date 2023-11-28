@@ -8,6 +8,17 @@
       <h3 style="color: #868e96;">{{ group.grouping }}</h3>
       <div>
         {% for skill in group.skills %}
+        {% if "type" in skill %}
+        {% if "name" in skill %}
+        {% if "icon" in skill %}
+        <span class="icon"><i class="devicon-{{  skill.icon | lower }}-{{ skill.type }}"></i></span>{{ skill.name }}
+        {% else %}
+        <span class="icon"><i class="devicon-{{  skill.name | lower }}-{{ skill.type }}"></i></span>{{ skill.name }}
+        {% endif %}
+        {% else %}
+        <span class="icon"><i class="devicon-{{  skill | lower }}-{{ skill.type }}"></i></span>{{ skill }}
+        {% endif %}
+        {% else %}
         {% if "name" in skill %}
         {% if "icon" in skill %}
         <span class="icon"><i class="devicon-{{  skill.icon | lower }}-plain"></i></span>{{ skill.name }}
@@ -16,6 +27,7 @@
         {% endif %}
         {% else %}
         <span class="icon"><i class="devicon-{{  skill | lower }}-plain"></i></span>{{ skill }}
+        {% endif %}
         {% endif %}
         {% endfor %}
       </div>
