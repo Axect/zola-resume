@@ -2,7 +2,7 @@
 {% set section = get_section(path="_index.md") %}
 <div class="is-flex is-flex-direction-column" style="height: 100%;">
   <div class="flex: 1;">
-    <h1>{{ config.extra.first_name }} <span class="text-primary">{{ config.extra.last_name }}</span></h1>
+    <h1>{{ config.extra.first_name }} <span class="text-primary">{{ config.extra.last_name }}</span> ({{ config.extra.nick_name }})</h1>
     <h2 class="subtitle">
       {{ config.extra.address ~ " · " }} <a href="mailto:{{ config.extra.email }}">{{ config.extra.email }}</a>
     </h2>
@@ -12,19 +12,6 @@
       {{ section.content | safe }}
     </div>
     <div class="is-hidden-touch">
-      <h3>Certifications</h3>
-      {% set data = load_data(path="data/certifications.json") %}
-      {% for item in data %}
-      <a href="{{ item.proof }}" data-toggle="tooltip" title="{{ item.name }}" data-offset="0,10" rel="me">
-        <figure class="image is-64x64">
-          {% if item.badge is starting_with("http") %}
-          <img src="{{ item.badge }}">
-          {% else %}
-          <img src="{{ get_url(path=item.badge) }}">
-          {% endif %}
-        </figure>
-      </a>
-      {% endfor %}
       <h3>Socialization</h3>
       {% set data = load_data(path="data/social.json") %}
       {% for item in data %}
