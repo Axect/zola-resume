@@ -7,13 +7,18 @@
   </div>
   {% set remain = false %}
   <div class="pb-6 pt-2" style="overflow: auto;">
-    {% for page in section.pages | reverse %}
+    {% for page in section.pages %}
     {% if page.extra.featured %}
     <div class="mb-5">
       <nav class="level mb-0">
         <div class="level-left">
           <div class="level-item">
             <h3 class="post-title"><a href="{{ page.permalink }}">{{ page.title }}</a></h3>
+            {% if page.extra.version %}
+            <a href="{{ page.extra.link }}" style="font-style: initial;" >
+              <span class="tag is-warning">{{ page.extra.version }}</span>
+            </a>
+            {% endif %}
           </div>
           {% if bibtex and page.extra.bibtex %}
           <div class="level-item">
