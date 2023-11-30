@@ -22,8 +22,8 @@
 {% if config.extra.show_education       %} 
 <li data-menuanchor="education"><a href="{{ get_url(path='/#anchor_education') }}">EDUCATION</a></li>
 {% endif %}
-{% if config.extra.show_blog            %} 
-<li data-menuanchor="blog"><a href="{{ get_url(path='/#anchor_blog') }}">BLOG</a></li>    
+{% if config.extra.show_articles            %} 
+<li data-menuanchor="articles"><a href="{{ get_url(path='/#anchor_articles') }}">ARTICLES</a></li>    
 {% endif %}
 </ul>
 {% endmacro %}
@@ -43,7 +43,7 @@
             {% if config.extra.show_publications    %} 'anchor_publications',  {% endif %}
             {% if config.extra.show_experience      %} 'anchor_experience',    {% endif %}
             {% if config.extra.show_education       %} 'anchor_education',     {% endif %}
-            {% if config.extra.show_blog            %} 'anchor_blog',          {% endif %}
+            {% if config.extra.show_articles        %} 'anchor_articles',      {% endif %}
         ],
         afterResize: function( width, height ){
 		    if (width < 936) {
